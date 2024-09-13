@@ -1,0 +1,65 @@
+---
+const { data, url } = Astro.props;
+---
+
+<a href={url} class="list-group-item list-group-item-action item border-0 mb-2 d-flex" aria-current="true">
+  <div class="counter"></div>
+  <div class="info">
+    <h5 class="mb-1 lh-base">{data.title}</h5>
+    <p class="mb-3 text-capitalize">{data.area}</p>
+    <p class="mb-1">
+      <strong>{data.author.length > 1 ? `Authors` : `Author`}:</strong>
+      {
+        data.author.map((author, index) => (
+          <>
+            {author.name}
+            {index < data.author.length - 1 ? ", " : ""}
+          </>
+        ))
+      }
+    </p>
+    <p>
+      <strong>Keywords:</strong>
+      {
+        data.keywords.map((keyword, index) => (
+          <>
+            {keyword}
+            {index < data.keywords.length - 1 ? ", " : ""}
+          </>
+        ))
+      }
+    </p>
+  </div>
+</a>
+
+<style>
+  .list-group-item {
+    counter-increment: paper;
+  }
+  .counter {
+    position: relative;
+    flex-basis: 100px;
+    font-size: 1.5rem;
+    color: #a8a8a8;
+
+    &::before {
+      content: counter(paper)
+    }
+  }
+
+  .info {
+    flex-basis: calc(100% - 100px)
+  }
+  .item {
+    transition: 0.3s;
+    border-radius: 0.25rem;
+  }
+  .item:hover {
+    color: white;
+    background-color: rgb(238, 109, 109);
+
+    & .counter::before {
+      color: white;
+    }
+  }
+</style>

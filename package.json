@@ -10,6 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^3.1.5",
+    "@astrojs/netlify": "^5.5.1",
+    "bootstrap": "^5.3.3",
+    "marked": "^14.1.2",
+    "mathjax": "^3.2.2",
+    "react-mathjax": "^1.0.1",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
+  },
+  "devDependencies": {
     "astro": "^4.15.4"
   }
 }

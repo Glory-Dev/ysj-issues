@@ -1,0 +1,16 @@
+---
+const { volumeNo } = Astro.props;
+---
+
+<div class="volume mb-5">
+  <h2 class="volume-title mb-4 pb-3">Volume {volumeNo}</h2>
+  <div class="row mb-4 gy-4">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .volume-title {
+    border-bottom: 5px solid #fa5968;
+  }
+</style>

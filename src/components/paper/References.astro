@@ -1,0 +1,78 @@
+---
+const { data } = Astro.props
+
+// Split references into two halves for two columns
+const middleIndex = Math.ceil(data.references.length / 2);
+const leftColumn = data.references.slice(0, middleIndex);
+const rightColumn = data.references.slice(middleIndex);
+---
+
+<div class="references">
+  <div class="subsection">
+    <p class="subtitle">References</p>
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-md-6">
+        {leftColumn.map((reference, index) => (
+          <p reference-no={`${data.articleNo}.${index + 1}`} set:html={reference}></p>
+        ))}
+      </div>
+      <!-- Right Column -->
+      <div class="col-md-6">
+        {rightColumn.map((reference, index) => (
+          <p reference-no={`${data.articleNo}.${middleIndex + index + 1}`} set:html={reference}></p>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.references {
+  padding-top: 2rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 2px;
+    border-radius: 5px;
+    background-color: #ee6d6d;
+    box-shadow: 0 6px 0 #ee6d6d;
+    counter-reset: references;
+  }
+}
+
+p[reference-no*="."]:not(:empty) {
+  padding: 0.5rem;
+  border-radius: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+
+  &:not(.subtitle) {
+    position: relative;
+    counter-increment: references 1;
+    padding-left: 2rem;
+
+    &::before {
+      content: "[" counter(references) "]";
+      position: absolute;
+      left: 0;
+      color: #ee6d6d;
+    }
+  }
+}
+@media (max-width: 767.98px) {
+  p[reference-no*="."]:not(:empty) {
+    font-size: 0.8rem;
+    margin-bottom: 0rem;
+  }
+}
+
+</style>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Volume from "../../components/Volume.astro";
+import Issue from "../../components/Issue.astro";
+const allPosts = await Astro.glob("./../articles/issue-*/*.mdx");
+// const issues = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+const pageTitle = "Issues";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <!-- {
+    issues.map((issue) => (
+      <p class="tag">
+        <a href={`/issues/${issue}`}>{issue}</a>
+      </p>
+    ))
+  } -->
+  <section class="issues py-5">
+    <Volume volumeNo="5">
+      <Issue issueNo="10" pubMonth="July" pubYear="2024" />
+    </Volume>
+    <Volume volumeNo="4">
+      <Issue issueNo="9" pubMonth="October" pubYear="2023" />
+    </Volume>
+    <Volume volumeNo="3">
+      <Issue issueNo="8" pubMonth="October" pubYear="2022" />
+    </Volume>
+    <Volume volumeNo="2">
+      <Issue issueNo="7" pubMonth="May" pubYear="2021" />
+    </Volume>
+    <Volume volumeNo="1">
+      <Issue issueNo="6" pubMonth="May" pubYear="2021" />
+      <Issue issueNo="5" pubMonth="April" pubYear="2021" />
+      <Issue issueNo="4" pubMonth="March" pubYear="2021" />
+      <Issue issueNo="3" pubMonth="January" pubYear="2021" />
+      <Issue issueNo="2" pubMonth="October" pubYear="2020" />
+      <Issue issueNo="1" pubMonth="July" pubYear="2020" />
+    </Volume>
+  </section>
+</BaseLayout>

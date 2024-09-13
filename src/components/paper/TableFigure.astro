@@ -1,0 +1,8 @@
+---
+const { tableNo, tableCaption } = Astro.props
+---
+
+<figure class="figure-block">
+  <figcaption>Table [{tableNo}] : {tableCaption}</figcaption>
+  <slot />
+</figure>

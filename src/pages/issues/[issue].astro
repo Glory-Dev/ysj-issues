@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Paper from "../../components/Paper.astro";
+import Hero from "../../components/Hero.astro";
+import Letter from "../../components/Letter.astro";
+
+export async function getStaticPaths() {
+  const allArticles = await Astro.glob("./../articles/issue-*/*.mdx");
+
+  const issues = [...new Set(allArticles.map((article) => article.frontmatter.issueNo).flat())];
+
+  return issues.map((issue) => {
+    const filteredArticles = allArticles.filter((article) => article.frontmatter.issueNo.includes(issue));
+    return {
+      params: { issue },
+      props: { articles: filteredArticles },
+    };
+  });
+}
+
+export const prerender = true;
+
+const { issue, pubDate } = Astro.params;
+const { articles } = Astro.props;
+---
+
+<BaseLayout pageTitle={`Issue ${issue}`} issueNo={issue} pubDate={pubDate}>
+  <Hero issueNo={issue} pubDate={pubDate} />
+  <Letter />
+
+  <div class="container pb-5 mb-5" >
+    <h2 class="mb-4 pt-5" id="toc">Articles</h2>
+    <div class="list-group rounded-0">
+      {articles.map((article) => <Paper data={article.frontmatter} url={article.url} />)}
+    </div>
+  </div>
+</BaseLayout>

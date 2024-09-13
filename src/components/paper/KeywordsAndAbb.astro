@@ -1,0 +1,32 @@
+---
+const { keywords, abbreviations } = Astro.props
+---
+
+<span class="keywords">
+  <strong>Keywords: </strong>
+  {
+  keywords.map((item, index) => (
+    <>
+      {item} {index < item.length - 1 ? ", " : ""}
+    </>
+  ))
+}
+</span>
+
+<style>
+  span.keywords,
+  span.abbreviations {
+    text-indent: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: rgba(33, 37, 41, 0.75);
+  }
+  span.keywords {
+    margin: 0 0 1rem;
+  }
+  span.abbreviations {
+    ul {
+      list-style-position: inside;
+    }
+  }
+</style>

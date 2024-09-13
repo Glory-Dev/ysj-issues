@@ -1,0 +1,17 @@
+---
+const props = Astro.props;
+---
+<span {...props}>
+  <slot />
+</span>
+
+<style>
+  span {
+    display: block;
+    text-indent: 3ch;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+</style>
