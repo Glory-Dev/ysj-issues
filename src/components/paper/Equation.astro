@@ -1,0 +1,8 @@
+---
+const { number } = Astro.props
+---
+
+<span class="math_eq">
+  <slot />
+  {number && <span class="caption">({number})</span>}
+</span>

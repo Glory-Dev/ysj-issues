@@ -4,7 +4,7 @@ const {data, figNo, figCaption} = Astro.props
 
 <div class="floating-figure clearfix">
   <figure class="float-none float-lg-end order-last">
-      <img src={`../../../images/issues/issue${data.issueNo}/article${data.articleNo}/figure_${figNo}.jpg`} alt={`Figure [${figNo}]: ${figCaption}`} />
+      <img src={`../../../images/issues/issue${data.issueNo}/article${data.articleNo}/figure_${figNo}.jpg`} alt={`Figure [${figNo}]`} />
       <figcaption>{`Figure [${figNo}]: ${figCaption}`}</figcaption>
   </figure>
   <span class="order-0">

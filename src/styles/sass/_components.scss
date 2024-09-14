@@ -1,0 +1,53 @@
+.pub-btn {
+  background: rgba(250, 48, 67, 0.2);
+  color: rgba(250, 48, 67, 0.8) !important;
+  margin-left: 15px;
+  border-radius: 7px;
+  font-size: 14px !important;
+  padding: 2px 15px !important;
+  margin-top: 8px !important;
+  position: relative;
+  overflow: hidden;
+  @media (max-width: 992px) {
+    width: 80px;
+  }
+  &:hover {
+    background: rgba(250, 48, 67, 0.3);
+    color: rgb(255, 37, 59) !important;
+  }
+
+  
+  div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: white;
+    opacity: 0.3;
+    height: 100%;
+    width: 100%;
+    transform: skewX(-45deg);
+    background: linear-gradient(to right, white, white 20px, transparent 20px);
+    transform-origin: left bottom;
+    animation: shine 5s ease-in infinite;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: skewX(-45deg) translateX(-100%);
+  }
+  /* 20% {
+    transform: skewX(-45deg) translateX(100%);
+  } */
+  30% {
+    transform: skewX(-45deg) translateX(-100%);
+  }
+  45% {
+    transform: skewX(-45deg) translateX(100%);
+  }
+  100% {
+    transform: skewX(-45deg) translateX(100%);
+  }
+}

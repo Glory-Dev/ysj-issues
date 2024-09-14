@@ -65,6 +65,7 @@ import BlockFigure from "../../../components/paper/BlockFigure.astro";
 import GridFigure from "../../../components/paper/GridFigure.astro";
 import Tooltip from "../../../components/paper/Tooltip.astro";
 import References from "../../../components/paper/References.astro";
+import Equation from "../../../components/paper/Equation.astro";
 
 
 <Abstract>
@@ -74,6 +75,24 @@ import References from "../../../components/paper/References.astro";
 </Abstract>
 
 <KeywordsAndAbb keywords={frontmatter.keywords} Abbreviations={frontmatter.abbreviations} />
+
+<Section>
+
+In simulating quantum mechanics, we are first interested in the solution of the time-dependent Schrodinger equation,
+
+<Equation number="1.1.1">
+  $$
+  j\hbar \; \frac{\partial}{\partial t} |\; \psi(t)\rangle \; = \hat{H}|\psi(t)\rangle
+  $$
+</Equation>
+
+where $H = -\frac{\hslash^2}{2m} \nabla^2 + V$ represents the Hamiltonian or the total energy of the wavefunction $\psi$ This can be further thought of as $\psi (t) = e^{-iHt} \psi (0)$ propagates the initial state $\psi (0)$ ‘s
+evolution through time. The Schrodinger’s equation is a useful representation of quantum dynamics because it fundamentally describes how quantum systems evolve and their Eigen states, respectively. Additionally, it takes a
+time-independent form $\hat{H} \psi = \hat{E} \psi$, but we will be focusing mainly on the time-dependent form and the applications resulting from it.
+
+
+
+</Section>
 
 <Section>
 

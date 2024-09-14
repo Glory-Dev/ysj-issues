@@ -1,0 +1,45 @@
+::selection {
+  color: white;
+  background: rgba(136, 135, 135, 0.5);
+}
+
+// START: SCROLLBAR
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  /* border-radius: 5px; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #555;
+}
+// END: SCROLLBAR
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Times New Roman", Times, serif;
+  }
+}

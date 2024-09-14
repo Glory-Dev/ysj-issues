@@ -11,7 +11,7 @@ const {data, figNo, figCaption} = Astro.props
     </p>
   </div>
   <figure class="col">
-    <img src={`../../../images/issues/issue${data.issueNo}/article${data.articleNo}/figure_${figNo}.jpg`} alt={`Figure [${figNo}]: ${figCaption}`} />
+    <img src={`../../../images/issues/issue${data.issueNo}/article${data.articleNo}/figure_${figNo}.jpg`} alt={`Figure [${figNo}]`} />
     <figcaption>{`Figure [${figNo}]: ${figCaption}`}</figcaption>
   </figure>
 </div>

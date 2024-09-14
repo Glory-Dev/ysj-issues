@@ -33,14 +33,14 @@ const { frontmatter } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <!-- <ViewTransitions /> -->
     <title>YSJ | {frontmatter.title}</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="../../images/favicon/site.webmanifest" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
   </head>
   <body issue-no={frontmatter.issueNo}>
     <Nav />
-    <section class="py-5">
+    <section class="main-section py-5">
       <div class="container-lg">
         <a href=`/issues/${frontmatter.issueNo}` class="return w-fit-content my-4 px-3 py-2 text-decoration-none rounded-3 fs-4 d-flex align-items-center gap-3">
           <i class="fa-solid fa-chevron-left"></i>
@@ -90,42 +90,3 @@ const { frontmatter } = Astro.props;
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </body>
 </html>
-
-<style>
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Times New Roman', Times, serif !important;
-}
-section .return {
-  background-color: #6acbfc;
-  color: white;
-}
-section h2.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: 150px;
-  height: 2px;
-  background-color: #ee6d6d;
-  border-radius: 5px;
-  -webkit-transition: 0.15s;
-  transition: 0.15s;
-}
-section h2.section-title:hover::after {
-  width: 100%;
-}
-
-section .border-box {
-  border: #dee2e6 2px solid;
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-@media (min-width: 991.98px) {
-  section .border-box {
-    padding: 5rem !important;
-  }
-}
-
-</style>

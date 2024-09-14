@@ -2,18 +2,23 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Paper from "../../components/Paper.astro";
 import Hero from "../../components/Hero.astro";
-import Letter from "../../components/Letter.astro";
 
 export async function getStaticPaths() {
+  // Fetch all articles & letters
   const allArticles = await Astro.glob("./../articles/issue-*/*.mdx");
+  const allLetters = await Astro.glob("./../letters/issue-*.md");
 
+  // Extract issue numbers from articles
   const issues = [...new Set(allArticles.map((article) => article.frontmatter.issueNo).flat())];
 
   return issues.map((issue) => {
+    // Filtering
     const filteredArticles = allArticles.filter((article) => article.frontmatter.issueNo.includes(issue));
+    const filteredLetter = allLetters.find((letter) => letter.frontmatter.issueNo === issue);
+
     return {
       params: { issue },
-      props: { articles: filteredArticles },
+      props: { articles: filteredArticles, letter: filteredLetter },
     };
   });
 }
@@ -21,14 +26,16 @@ export async function getStaticPaths() {
 export const prerender = true;
 
 const { issue, pubDate } = Astro.params;
-const { articles } = Astro.props;
+const { articles, letter } = Astro.props;
+const { Content } = letter;
 ---
 
 <BaseLayout pageTitle={`Issue ${issue}`} issueNo={issue} pubDate={pubDate}>
   <Hero issueNo={issue} pubDate={pubDate} />
-  <Letter />
 
-  <div class="container pb-5 mb-5" >
+  <Content />
+
+  <div class="container pb-5 mb-5">
     <h2 class="mb-4 pt-5" id="toc">Articles</h2>
     <div class="list-group rounded-0">
       {articles.map((article) => <Paper data={article.frontmatter} url={article.url} />)}
