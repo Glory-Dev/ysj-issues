@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZTYWSZHJ4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-8ZTYWSZHJ4");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YSJ | Issues</title>
+    <link rel="icon" href="images/page_title.png" />
+  </head>
+
+  <body>
+    <div id="adobe-dc-view"></div>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("adobe_dc_view_sdk.ready", function () {
+        var adobeDCView = new AdobeDC.View({
+          clientId: "75c634726d0f423f818f93a8d7418fbb",
+          divId: "adobe-dc-view",
+        });
+        adobeDCView.previewFile(
+          {
+            content: {
+              location: {
+                url: "https://www.ys-journal.com/issues/2/issue-2.pdf",
+              },
+            },
+            metaData: {
+              fileName: "Issue-2.pdf",
+            },
+          },
+          {
+            showAnnotationTools: false,
+            showLeftHandPanel: false,
+            showDownloadPDF: false,
+            showPrintPDF: false,
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
