@@ -14,13 +14,13 @@ const rightColumn = data.references.slice(middleIndex);
       <!-- Left Column -->
       <div class="col-md-6">
         {leftColumn.map((reference, index) => (
-          <p reference-no={`${data.articleNo}.${index + 1}`} set:html={reference}></p>
+          <p id={`reference-${data.articleNo}-${index + 1}`} set:html={reference}></p>
         ))}
       </div>
       <!-- Right Column -->
       <div class="col-md-6">
         {rightColumn.map((reference, index) => (
-          <p reference-no={`${data.articleNo}.${middleIndex + index + 1}`} set:html={reference}></p>
+          <p id={`reference-${data.articleNo}-${middleIndex + index + 1}`} set:html={reference}></p>
         ))}
       </div>
     </div>
@@ -47,7 +47,7 @@ const rightColumn = data.references.slice(middleIndex);
   }
 }
 
-p[reference-no*="."]:not(:empty) {
+p[id*="reference"] {
   padding: 0.5rem;
   border-radius: 10px;
   overflow-wrap: break-word;

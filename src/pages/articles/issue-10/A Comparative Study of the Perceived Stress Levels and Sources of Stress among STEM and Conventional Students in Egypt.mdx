@@ -2,6 +2,7 @@
 layout: "./../../../layouts/PaperLayout.astro"
 articleNo: "1"
 issueNo: "10"
+volumeNo: "5"
 title: 'A Comparative Study of the Perceived Stress Levels and Sources of Stress among STEM and Conventional Students in Egypt'
 pubDate: "??"
 area: "Psychology"
@@ -11,7 +12,6 @@ author: [
   {name: "Omar Aboolo", school: 'STEM High School for Boys - 6th of October'},
 ]
 supervisorName: "Hello"
-supervisorSchool: "Gharbia STEM"
 keywords: ["Perceived stress scale", "STEM education", "Conventional education", "Sleep hours", "Extracurriculars"]
 abbreviations: []
 references: [
@@ -53,12 +53,8 @@ import HeadingFive from '../../../components/markdown/HeadingFive.astro';
 import HeadingSix from '../../../components/markdown/HeadingSix.astro';
 import Table from '../../../components/markdown/Table.astro';
 import Thead from '../../../components/markdown/Thead.astro';
-import Tb from '../../../components/markdown/Tb.astro';
-import Tr from '../../../components/markdown/Tr.astro';
-import Th from '../../../components/markdown/Th.astro';
-import Td from '../../../components/markdown/Td.astro';
 
-export const components = { table: Table, thead: Thead, tbody: Tb, tr: Tr, th: Th, td: Td, p: Para, h1: HeadingOne, h2: HeadingTwo, h3: HeadingThree, h4: HeadingFour, h5: HeadingFive, h6: HeadingSix };
+export const components = { table: Table, thead: Thead, p: Para, h1: HeadingOne, h2: HeadingTwo, h3: HeadingThree, h4: HeadingFour, h5: HeadingFive, h6: HeadingSix };
 
 import Abstract from "../../../components/paper/Abstract.astro";
 import KeywordsAndAbb from "../../../components/paper/KeywordsAndAbb.astro";

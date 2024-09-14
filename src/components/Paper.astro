@@ -2,11 +2,11 @@
 const { data, url } = Astro.props;
 ---
 
-<a href={url} class="list-group-item list-group-item-action item border-0 mb-2 d-flex" aria-current="true">
+<a href={url} class="list-group-item list-group-item-action item border-0 mb-2 d-flex flex-wrap" aria-current="true">
   <div class="counter"></div>
   <div class="info">
-    <h5 class="mb-1 lh-base">{data.title}</h5>
-    <p class="mb-3 text-capitalize">{data.area}</p>
+    <h5 class="fs-3 mb-3 lh-base">{data.title}</h5>
+    <p class="mb-1 text-capitalize"><strong>Category</strong> {data.area}</p>
     <p class="mb-1">
       <strong>{data.author.length > 1 ? `Authors` : `Author`}:</strong>
       {
@@ -62,4 +62,23 @@ const { data, url } = Astro.props;
       color: white;
     }
   }
+
+  @media(max-width: 992px) {
+    .counter {
+      flex-basis:100%;
+      margin-bottom: 1rem;
+
+      &::before {
+        content: "PAPER " counter(paper)
+      }
+    }
+    .info {
+      flex-basis: 100%;
+
+      h5, p {
+        text-align: justify
+      }
+    }
+  }
+
 </style>

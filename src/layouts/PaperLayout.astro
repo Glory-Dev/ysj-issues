@@ -40,32 +40,24 @@ const { frontmatter } = Astro.props;
   </head>
   <body issue-no={frontmatter.issueNo}>
     <Nav />
-    <section>
+    <section class="py-5">
       <div class="container-lg">
-        <div class="border-box">
-          <h2 class="section-title text-center">{frontmatter.title}</h2>
+        <a href=`/issues/${frontmatter.issueNo}` class="return w-fit-content my-4 px-3 py-2 text-decoration-none rounded-3 fs-4 d-flex align-items-center gap-3">
+          <i class="fa-solid fa-chevron-left"></i>
+          <span>Return to Issue 10</span>
+        </a>
+        <div class="border-box mx-auto px-3 px-md-4 py-5">
+          <h2 class="section-title w-fit-content text-center position-relative mx-auto mb-5">{frontmatter.title}</h2>
           <p class="section-author mb-0 text-center text-muted">
           {
             frontmatter.author.map((author, index) => (
               <>
                 {`${author.name} (${author.school})`}
-                {index < frontmatter.author.length - 1 ? ", " : ""}
+                <br/>
               </>
             ))
           }
-          {
-            frontmatter.supervisorName &&
-            <>
-              <br />
-              <strong>Mentor: </strong>{frontmatter.supervisorName}
-            </>
-          }
-          {
-            frontmatter.supervisorSchool &&
-            <>
-              ({frontmatter.supervisorSchool})
-            </>
-          }
+          {frontmatter.supervisorName && <><strong>Mentor: </strong>{frontmatter.supervisorName} ({frontmatter.supervisorSchool})</>}
           </p>
           <div class="content">
             <slot />
@@ -99,29 +91,13 @@ const { frontmatter } = Astro.props;
   </body>
 </html>
 
-
 <style>
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Times New Roman', Times, serif !important;
 }
-
-section {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-section h2.section-title {
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2rem;
-}
-@media (max-width: 992px) {
-  section h2.section-title {
-    margin-bottom: 3rem;
-  }
+section .return {
+  background-color: #6acbfc;
+  color: white;
 }
 section h2.section-title::after {
   content: "";
@@ -140,59 +116,15 @@ section h2.section-title::after {
 section h2.section-title:hover::after {
   width: 100%;
 }
-section h2.section-title .copy-section-link {
-  display: inline;
-  width: 25px;
-  position: absolute;
-  top: 50%;
-  left: -60px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  fill: #ee6d6d;
-  cursor: pointer;
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-@media (max-width: 992px) {
-  section h2.section-title .copy-section-link {
-    bottom: -40px;
-    top: unset !important;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(0);
-            transform: translateX(-50%) translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-}
-section h2.section-title:hover .copy-section-link {
-  opacity: 1;
-  visibility: visible;
-}
+
 section .border-box {
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5rem;
   border: #dee2e6 2px solid;
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
-@media (max-width: 992px) {
+@media (min-width: 991.98px) {
   section .border-box {
-    width: 99%;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-}
-@media (max-width: 767.98px) {
-  section .border-box {
-    width: 99.5%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding: 5rem !important;
   }
 }
 

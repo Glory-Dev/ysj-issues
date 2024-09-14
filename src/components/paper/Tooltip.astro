@@ -2,4 +2,4 @@
 const {data, no} = Astro.props
 ---
 
-<a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title={data.references[no-1]} reference-no=`${data.articleNo}.${no}`>[{[no]}]</a>
+<a href=`#reference-${data.articleNo}-${no}` data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title={data.references[no-1]}>[{[no]}]</a>

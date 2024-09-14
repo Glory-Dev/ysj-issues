@@ -1,6 +1,12 @@
 @import url("https://fonts.cdnfonts.com/css/sofia-pro");
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
+.w-fit-content {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 /* Scrollbar */
 
 /* width */

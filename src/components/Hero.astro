@@ -11,10 +11,10 @@ const { issueNo, pubDate } = Astro.props;
           <p class="display-1 mb-0">Issue {issueNo}</p>
           <p class="fs-4 text-muted">{pubDate}</p>
           <a href="#toc" class="btn rounded-1 mb-3">Table of Contents</a>
-          <a href="#" class="text-decoration-none text-muted small">Switch to PDF View</a>
+          <a href=`/pdf/${issueNo}/issue-${issueNo}.pdf` class="text-decoration-none text-muted small">Switch to PDF View</a>
         </div>
       </div>
-      <div class="col-lg-6 h-100 d-none d-md-block">
+      <div class="col-lg-6 h-100 d-none d-lg-block">
         <div class="hero-bg h-100 d-flex justify-content-center align-items-center">
           <img loading="lazy" src="../../images/issues/issue10/cover.png" alt="Issue 10" />
         </div>
